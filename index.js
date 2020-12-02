@@ -75,7 +75,7 @@ async function init() {
     const userResponses = await inquirer.prompt(questions);
 
     // Pass Inquirer responses to generateMarkdown
-    const markdown = generateMarkdown(userResponses);
+    const markdownContent = generateMarkdown(userResponses);
     console.log("Generating your README now...");
 
     // write markdown to file
@@ -83,7 +83,7 @@ async function init() {
       .toLowerCase()
       .split(" ")
       .join("_")}.md`;
-    await writeToFile(fileName, markdown);
+    await writeToFile(fileName, markdownContent);
   } catch (err) {
     console.log(err);
   }
