@@ -1,0 +1,23 @@
+{
+  "name": "readme_generator",
+  "version": "1.0.0",
+  "description": "README.md Generator Using Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaylamuraoka/README_generator.git"
+  },
+  "keywords": [
+    "inquirer",
+    "nodejs"
+  ],
+  "author": "Kayla Muraoka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kaylamuraoka/README_generator/issues"
+  },
+  "homepage": "https://github.com/kaylamuraoka/README_generator#readme"
+}
