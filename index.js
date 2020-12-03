@@ -6,6 +6,8 @@ const writeFileAsync = util.promisify(fs.writeFile);
 
 // Require Internal modules
 const generateMarkdown = require("./utils/generateMarkdown");
+const getRepos = require("./utils/getRepos");
+const { connect } = require("http2");
 
 // array of questions for user
 const questions = [
@@ -43,7 +45,7 @@ const questions = [
     type: "list",
     name: "license",
     message: "Choose a license for your application:",
-    choices: ["Apache", "Boost", "GNU", "IBM", "ISC", "MIT", "Mozilla", "Open"],
+    choices: ["Apache", "GNU", "ISC", "MIT", "Mozilla", "Open Data Commons"],
   },
   {
     type: "input",
@@ -63,7 +65,9 @@ function writeToFile(fileName, data) {
     err
       ? console.log(err)
       : console.log(
-          `Success! The following markdown file has been generated: ${fileName}`
+          "Success! The following markdown file has been generated: " +
+            fileName +
+            "."
         )
   );
 }
@@ -74,15 +78,17 @@ async function init() {
     // Prompt Inquirer questions
     const userResponses = await inquirer.prompt(questions);
 
+    console.log(getRepos(userResponses.username));
+
     // Pass Inquirer responses to generateMarkdown
     const markdownContent = generateMarkdown(userResponses);
-    console.log("Generating your README now...");
 
     // write markdown to file
     let fileName = `${userResponses.title
       .toLowerCase()
       .split(" ")
       .join("_")}.md`;
+
     await writeToFile(fileName, markdownContent);
   } catch (err) {
     console.log(err);

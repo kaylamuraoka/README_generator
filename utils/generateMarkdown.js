@@ -1,53 +1,54 @@
 // function to generate markdown for README
 function generateMarkdown(data) {
   // switch case to determine the license badge at the top of the markdown file
-  var license;
+  var licenseBadge;
   switch (data.license) {
     case "Apache":
-      license =
-        "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
+      licenseBadge =
+        "[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
+      licenseInfo = "[Apache 2.0](https://opensource.org/licenses/Apache-2.0)";
       break;
-    case "Boost":
-      license =
-        "[![License](https://img.shields.io/badge/License-Boost%201.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)";
-      break;
-    case "GNU":
-      license =
+    case "GNU GPL":
+      licenseBadge =
         "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)";
-      break;
-    case "IBM":
-      license =
-        "[![License: IPL 1.0](https://img.shields.io/badge/License-IPL%201.0-blue.svg)](https://opensource.org/licenses/IPL-1.0)";
+      licenseInfo =
+        "[GNU General Public License](https://www.gnu.org/licenses/gpl-3.0)";
       break;
     case "ISC":
-      license =
+      licenseBadge =
         "[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)";
+      licenseInfo = "[ISC](https://opensource.org/licenses/ISC)";
       break;
     case "MIT":
-      license =
+      licenseBadge =
         "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
+      licenseInfo = "[MIT](https://opensource.org/licenses/MIT)";
       break;
     case "Mozilla":
-      license =
+      licenseBadge =
         "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)";
+      licenseInfo = "[MPL 2.0](https://opensource.org/licenses/MPL-2.0)";
       break;
     case "Open Data Commons":
-      license =
+      licenseBadge =
         "[![License: Open Data Commons Attribution](https://img.shields.io/badge/License-ODC_BY-brightgreen.svg)](https://opendatacommons.org/licenses/by/)";
-      break;
-    case "Perl":
-      license =
-        "[![License: Artistic-2.0](https://img.shields.io/badge/License-Perl-0298c3.svg)](https://opensource.org/licenses/Artistic-2.0)";
+      licenseInfo =
+        "[Open Data Commons Attribution](https://opendatacommons.org/licenses/by/)";
       break;
     default:
       // default MIT license
-      license =
+      licenseBadge =
         "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
+      licenseInfo = "[MIT](https://opensource.org/licenses/MIT)";
   }
+
+  // https://api.github.com/repos/kaylamuraoka/README_generator
+  // console.log("Respository Link:" + res.data[i].html_url);
+  // console.log("Demo: " + res.data[i].homepage);
 
   return `# ${data.title}
 
-  ${license}
+  ${licenseBadge}
 
   ## Description
   ${data.description}
@@ -61,14 +62,13 @@ function generateMarkdown(data) {
   - [Questions](#questions)
   
   ## Installation
-
   ${data.installationInstructions}
 
   ## Usage
   ${data.usageInfo}
 
   ## License
-  This application is covered under ${data.license}
+  This project is licensed under the ${licenseInfo} license.
 
   ## Contributing
   ${data.contributionGuidelines}
@@ -77,7 +77,8 @@ function generateMarkdown(data) {
   ${data.testInstructions}
 
   ## Questions
-  Github Profile: ${data.username}
+  Please use the contact information below if you would like to reach me with any questions.
+  Github Profile: [@${data.username}](https://github.com/${data.username})
   Email: ${data.email}`;
 }
 
