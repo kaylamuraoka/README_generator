@@ -43,7 +43,7 @@ This project is licensed under the [MIT](https://opensource.org/licenses/MIT) li
 
 ## Contributing
 
-I would be happy if anyone decides to improve it. All comments and suggestions are welcomed. To contribute to this project, clone this repo locally and commit your code on a seperate branch.
+All comments and suggestions regarding improvements to this project are welcomed. To contribute to this project, clone this [project repo](https://github.com/kaylamuraoka/README_generator) locally and commit your code on a seperate branch. You may then modify the code to your liking. For steps on how to clone a repository using the command line, read this section of the GitHub Docs [**about cloning a repository**](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository#about-cloning-a-repository).
 
 ## Tests
 
