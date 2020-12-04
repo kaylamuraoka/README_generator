@@ -61,5 +61,5 @@ Tests were performed, this README.md was created using this tool.
 
 Please use the contact information below if you would like to reach me with any questions:
 
-- Github Profile: [@kaylamuraoka](https://github.com/kaylamuraoka)
-- Email: kmurs98@gmail.com
+- Github Profile: [**@kaylamuraoka**](https://github.com/kaylamuraoka)
+- Email: **kmurs98@gmail.com**
