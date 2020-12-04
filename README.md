@@ -8,9 +8,13 @@ When creating an open source project on Github, it’s important to have a high-
 
 Therefore, this is a command-line application that dynamically generates a professional README.md file from user's input using Node.js.
 
-#### New Concepts
+### New Concepts
 
 Functions running in parallel with other functions are called asynchronous functions (ex: `setTimeout(printMessage, 3000) `). A callback function is passed as a parameter to another function, and then called back right after something has happened or some task is completed. A promise is a returned object to which you attach callbacks, instead of passing callbacks into a function.
+
+### Demonstration
+
+![demonstration of application](./demo.gif)
 
 ## Table of Contents
 
