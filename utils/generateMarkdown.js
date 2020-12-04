@@ -1,7 +1,7 @@
 // const axios = require("axios");
 
 // function to generate markdown for README
-function generateMarkdown(data) {
+function generateMarkdown(data, repoName) {
   // switch case to determine the license badge at the top of the markdown file
   var licenseBadge;
   switch (data.license) {

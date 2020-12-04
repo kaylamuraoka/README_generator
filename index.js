@@ -2,32 +2,11 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const util = require("util");
-// const axios = require("axios");
 // Convert callback based methods to promise based methods
 const writeFileAsync = util.promisify(fs.writeFile);
 
 // Require Internal modules
 const generateMarkdown = require("./utils/generateMarkdown");
-
-// let reposArray = [];
-// function getRepos(username) {
-//   axios
-//     .get(
-//       `https://api.github.com/users/${username}/repos?sort=created?direction=asc`
-//     )
-//     .then((res) => {
-//       // if the user has repositories on github
-//       res.data.forEach((repo) => {
-//         reposArray.push(repo.name);
-//       });
-//       inquirer.prompt({
-//         type: "list",
-//         name: "repo",
-//         message: "Select this project's repository",
-//         choices: reposArray,
-//       });
-//     });
-// }
 
 // array of questions for user
 const questions = [
@@ -126,26 +105,6 @@ async function init() {
     console.log(err);
   }
 }
-
-//   // Prompt Inquirer questions
-//   inquirer
-//     .prompt(questions)
-//     .then((res) => {
-//       // Use the users responses to the prompts to generate a markdown file
-//       let fileName = `${res.title.toLowerCase().split(" ").join("_")}.md`;
-//       // Pass Inquirer responses to generate Markdown file
-//       writeToFile(fileName, generateMarkdown(res));
-//     })
-//     .catch((error) => {
-//       if (error.isTtyError) {
-//         // Prompt couldn't be rendered in the current environment
-//         console.log("Prompt couldn't be rendered in your current environment");
-//       } else {
-//         // Something else when wrong
-//         console.log(error);
-//       }
-//     });
-// }
 
 // function call to initialize program
 init();
